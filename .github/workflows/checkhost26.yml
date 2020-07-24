@@ -19,18 +19,12 @@ jobs:
 
     - name: run
       run: bash ./checkhost26.sh
-
-
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2.1.0
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
       with:
-        fetch-depth: 2
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
-      with:
-        ftp-server: ftp://neodev.ddns.net/Files/Deadhost/
-        ftp-username: plmh
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        author_name: FusionPlmH
+        author_email: leemenhin@gmail.com
+        message: "Update Deadhost"
+        add: "deadhost*"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
