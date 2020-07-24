@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: checkhost21
+name: checkhost22
 
 on:
   watch:
@@ -18,7 +18,7 @@ jobs:
       run: sudo apt install -y nmap
 
     - name: run
-      run: bash ./checkhost21.sh
+      run: bash ./checkhost22.sh
     - name: push
       uses: github-actions-x/commit@v2.6
       with:
