@@ -19,12 +19,14 @@ jobs:
 
     - name: run
       run: bash ./checkhost23.sh
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v4
+    - name: push
+      uses: github-actions-x/commit@v2.6
       with:
-        author_name: FusionPlmH
-        author_email: leemenhin@gmail.com
-        message: "Update Deadhost"
-        add: "deadhost*"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'Add Deadhost'
+        force-add: 'true'
+        files: deadhost*
+        name: FusionPlmH
+        email: leemenhin@gmail.com
+        rebase: 'true'
